@@ -39,12 +39,13 @@ if config.percentage_of_dataset is not None:
     config.log_dir = config.log_dir + str(config.percentage_of_dataset) + "/"
     config.ckpt_path = config.ckpt_path + str(config.percentage_of_dataset) + "/"
 else:
-    config.log_dir = config.log_dir + "/"
-    config.ckpt_path = config.ckpt_path + "/"
     if not os.path.exists(config.log_dir):
         os.mkdir(config.log_dir)
     if not os.path.exists(config.ckpt_path):
         os.mkdir(config.ckpt_path)
+    config.log_dir = config.log_dir + "/"
+    config.ckpt_path = config.ckpt_path + "/"
+
 
 
 
