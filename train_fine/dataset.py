@@ -16,7 +16,7 @@ class AVA(torch.utils.data.Dataset):
     def __init__(
         self,
         mode: str,
-        image_dir: str = "/scratch/AVA/images",
+        image_dir: str = "/opt/tiger/wzq_mnist/data/AVA_dataset/images/images",
         percentage_of_dataset: int = None,
         horizontal_flip: bool = True,
         normalize: bool = True,
@@ -27,7 +27,7 @@ class AVA(torch.utils.data.Dataset):
         self.horizontal_flip = horizontal_flip
         self.percentage_of_dataset = percentage_of_dataset
 
-        self.files = pd.read_csv(f"/scratch/AVA/{mode}_labels.csv")
+        self.files = pd.read_csv(f"/opt/tiger/wzq_mnist/self-supervised-multi-task-aesthetic-pretraining/{mode}_labels.csv")
         if self.percentage_of_dataset is not None:
             self.files = self.files[: int(len(self.files) * (self.percentage_of_dataset / 100))]
 

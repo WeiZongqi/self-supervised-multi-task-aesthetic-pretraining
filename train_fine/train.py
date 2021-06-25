@@ -3,6 +3,7 @@ import logging
 import sys
 from pathlib import Path
 from typing import Dict, List
+import os
 
 import numpy as np
 import torch
@@ -26,8 +27,8 @@ parser.add_argument("--percentage_of_dataset", type=int, default=None)
 parser.add_argument("--load_path", type=str, default=None)
 
 # misc
-parser.add_argument("--log_dir", type=str, default="/scratch/train_logs/IA2NIMA/AVA")
-parser.add_argument("--ckpt_path", type=str, default="/scratch/ckpts/IA2NIMA/AVA")
+parser.add_argument("--log_dir", type=str, default="/opt/tiger/wzq_mnist/self-supervised-multi-task-aesthetic-pretraining/logs/IA2NIMA/AVA")
+parser.add_argument("--ckpt_path", type=str, default="/opt/tiger/wzq_mnist/self-supervised-multi-task-aesthetic-pretraining/ckpts/IA2NIMA/AVA")
 
 config = parser.parse_args()
 
@@ -40,6 +41,12 @@ if config.percentage_of_dataset is not None:
 else:
     config.log_dir = config.log_dir + "/"
     config.ckpt_path = config.ckpt_path + "/"
+    if not os.path.exist(config.log_dir):
+        os.mkdir(config.log_dir)
+    if not os.path.exist(config.ckpt_path):
+        os.mkdir(config.log_dir)
+
+
 
 settings: List[str] = []
 
