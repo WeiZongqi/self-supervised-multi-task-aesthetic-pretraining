@@ -44,7 +44,7 @@ else:
     if not os.path.exists(config.log_dir):
         os.mkdir(config.log_dir)
     if not os.path.exists(config.ckpt_path):
-        os.mkdir(config.log_dir)
+        os.mkdir(config.ckpt_path)
 
 
 
