@@ -33,6 +33,9 @@ class AVA(torch.utils.data.Dataset):
 
         logging.info(f"found {len(self.files)} files")
 
+
+        print(self.files,'+++++')
+
         def pad_square(im: Image.Image, min_size: int = 224, fill_color=(0, 0, 0)) -> Image.Image:
             im = transforms.Resize(224)(im)
             x, y = im.size
