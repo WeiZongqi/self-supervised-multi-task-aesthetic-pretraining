@@ -12,8 +12,8 @@ from torch.utils.data import DataLoader
 from torch.utils.tensorboard import SummaryWriter
 
 sys.path[0] = "/workspace"
-from train_fine.dataset import AVA
-from train_fine.NIMA import NIMA, earth_movers_distance
+from dataset import AVA
+from NIMA import NIMA, earth_movers_distance
 
 parser = argparse.ArgumentParser()
 
