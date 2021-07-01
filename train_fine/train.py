@@ -94,7 +94,8 @@ optimizer = optim.Adam(
 lr=0,
 weight_decay=0.00004)
 # fmt:on
-lr_scheduler: optim.lr_scheduler.ReduceLROnPlateau = optim.lr_scheduler.ReduceLROnPlateau(
+lr_scheduler = optim.lr_scheduler.ReduceLROnPlateau(
+# lr_scheduler: optim.lr_scheduler.ReduceLROnPlateau = optim.lr_scheduler.ReduceLROnPlateau(
     optimizer, factor=0.5, patience=10
 )
 
