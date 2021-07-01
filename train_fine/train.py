@@ -11,7 +11,7 @@ from torch import cuda, optim
 from torch.utils.data import DataLoader
 from torch.utils.tensorboard import SummaryWriter
 
-sys.path[0] = "/workspace"
+# sys.path[0] = "/workspace"
 from dataset import AVA
 from NIMA import NIMA, earth_movers_distance
 
