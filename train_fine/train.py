@@ -75,7 +75,7 @@ else:
     settings.append("imagenet")
 
 
-logging.info(f"saving to {config.ckpt_path}")
+logging.info(f"saving to "+config.ckpt_path)
 
 Path(config.log_dir).mkdir(parents=True, exist_ok=True)
 writer = SummaryWriter(log_dir=config.log_dir)
