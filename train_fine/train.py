@@ -120,8 +120,8 @@ if Path(config.ckpt_path).exists():
         logging.info("none found")
     else:
         for warm_epoch in range(0, 80):
-            p = Path(config.ckpt_path) / f"epoch-{warm_epoch}.pth"
-            if not (Path(config.ckpt_path) / "epoch-{"+str(warm_epoch+1)+"}.pth").exists():
+            p = Path(config.ckpt_path) / "epoch-"+str(warm_epoch)+".pth"
+            if not (Path(config.ckpt_path) / "epoch-"+str(warm_epoch+1)+".pth").exists():
                 break
         state = torch.load(str(p))
 
