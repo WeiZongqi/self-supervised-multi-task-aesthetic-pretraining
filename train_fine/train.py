@@ -49,7 +49,8 @@ else:
 
 
 
-settings: List[str] = []
+settings = []
+# settings: List[str] = []
 
 if config.load_path is not None:
     if "scores-None" in config.load_path:
