@@ -47,7 +47,7 @@ class AVA(torch.utils.data.Dataset):
         return len(self.files)
 
     def __getitem__(self, idx):
-        print(idx,'+++++++')
+        print(idx,',',len(self),'+++++++')
         try:
             return self._actualgetitem(idx)
         except:
