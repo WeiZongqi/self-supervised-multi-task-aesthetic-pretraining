@@ -60,7 +60,6 @@ class AVA(torch.utils.data.Dataset):
         # img = cv.imread(img_path)
         img = Image.open(img_path).convert("RGB")
         # img = Image.open(Path(self.image_dir) / path).convert("RGB")
-        print(len(img),'++')
         img = self.pad_square(img)
         if self.horizontal_flip:
             img = transforms.RandomHorizontalFlip()(img)
