@@ -150,7 +150,7 @@ logging.info(f"trainable params: {(param_num / 1e6):.2f} million")
 logging.info("creating datasets")
 train_loader = DataLoader(
     AVA(mode="train", percentage_of_dataset=config.percentage_of_dataset),
-    batch_size=128,
+    batch_size=32,
     shuffle=True,
     drop_last=True,
     num_workers=0,
