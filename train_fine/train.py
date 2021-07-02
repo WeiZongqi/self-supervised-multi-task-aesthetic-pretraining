@@ -166,13 +166,14 @@ logging.info("datasets created")
 
 logging.info("start training")
 for epoch in range(epoch, 80):
+    print('------------------------1')
     if conv_locked:
         for param in nima.features.parameters():
             param.requires_grad = False
     else:
         for param in nima.parameters():
             param.requires_grad = True
-
+    print('------------------------2')
     if not conv_locked and new_lr_init:
         optimizer = optim.Adam(
             [
@@ -187,7 +188,7 @@ for epoch in range(epoch, 80):
             optimizer, factor=0.5, patience=5
         )
         new_lr_init = False
-
+    print('------------------------3')
     for i, data in enumerate(train_loader):
         logging.info(f"batch loaded: step {i}")
 
