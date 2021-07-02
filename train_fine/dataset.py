@@ -48,11 +48,11 @@ class AVA(torch.utils.data.Dataset):
         return len(self.files)
 
     def __getitem__(self, idx):
-        # return self._actualgetitem(idx)
-        try:
-            return self._actualgetitem(idx)
-        except:
-            return self[random.randint(0, len(self))]
+        return self._actualgetitem(idx)
+        # try:
+        #     return self._actualgetitem(idx)
+        # except:
+        #     return self[random.randint(0, len(self))]
 
     def _actualgetitem(self, idx: int):
         path = str(int(self.files.iloc[idx][0])) + ".jpg"
