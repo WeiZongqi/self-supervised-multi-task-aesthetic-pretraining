@@ -150,17 +150,17 @@ logging.info(f"trainable params: {(param_num / 1e6):.2f} million")
 logging.info("creating datasets")
 train_loader = DataLoader(
     AVA(mode="train", percentage_of_dataset=config.percentage_of_dataset),
-    batch_size=4,
+    batch_size=256,
     shuffle=True,
     drop_last=True,
-    num_workers=0,
+    num_workers=4,
     pin_memory=True,
 )
 val_loader = DataLoader(AVA(mode="val"),
-                        batch_size=4,
+                        batch_size=256,
                         shuffle=False,
                         drop_last=True,
-                        num_workers=0,
+                        num_workers=4,
                         pin_memory=True)
 logging.info("datasets created")
 
@@ -186,9 +186,7 @@ for epoch in range(epoch, 80):
             optimizer, factor=0.5, patience=5
         )
         new_lr_init = False
-    print('------------------------3')
     for i, data in enumerate(train_loader):
-        print('------------------------4')
         logging.info(f"batch loaded: step {i}")
 
         optimizer.zero_grad()
