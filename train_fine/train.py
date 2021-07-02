@@ -156,7 +156,12 @@ train_loader = DataLoader(
     num_workers=0,
     pin_memory=True,
 )
-val_loader = DataLoader(AVA(mode="val"), batch_size=450, shuffle=False, drop_last=True, num_workers=50, pin_memory=True)
+val_loader = DataLoader(AVA(mode="val"),
+                        batch_size=4,
+                        shuffle=False,
+                        drop_last=True,
+                        num_workers=0,
+                        pin_memory=True)
 logging.info("datasets created")
 
 logging.info("start training")
