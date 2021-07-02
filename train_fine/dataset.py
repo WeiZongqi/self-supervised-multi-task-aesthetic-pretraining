@@ -54,7 +54,9 @@ class AVA(torch.utils.data.Dataset):
 
     def _actualgetitem(self, idx: int):
         path = str(int(self.files.iloc[idx][0])) + ".jpg"
-        img = Image.open(Path(self.image_dir) / path).convert("RGB")
+        img_path = self.image_dir + '/' + path
+        img = Image.open(img_path).convert("RGB")
+        # img = Image.open(Path(self.image_dir) / path).convert("RGB")
         print(len(img),'++')
         img = self.pad_square(img)
         if self.horizontal_flip:
