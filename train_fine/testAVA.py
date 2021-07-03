@@ -16,7 +16,7 @@ logging.basicConfig(format="%(asctime)s %(levelname)-8s %(message)s", level=logg
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument("--model-path", type=str, default=None)
+parser.add_argument("--model-path", type=str, default='/opt/tiger/wzq_mnist/self-supervised-multi-task-aesthetic-pretraining/ckpts/IA2NIMA/AVA/epoch.pth')
 parser.add_argument("--last-frozen", action="store_true")
 parser.add_argument("--first-unfrozen", action="store_true")
 
@@ -41,7 +41,8 @@ config.model_path = str(config.model_path)
 
 logging.info(f"loading {config.model_path}")
 
-out_file = "/workspace/analysis/not_uploaded/IA2NIMA/AVA/" + config.model_path.replace("/", ".") + ".txt"
+out_file = "/opt/tiger/wzq_mnist/self-supervised-multi-task-aesthetic-pretraining/ckpts/IA2NIMA/AVA/output.txt"
+# out_file = "/workspace/analysis/not_uploaded/IA2NIMA/AVA/" + config.model_path.replace("/", ".") + ".txt"
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -54,7 +55,7 @@ nima.eval()
 logging.info("creating datasets")
 # datasets
 AVA = AVA(mode="test", horizontal_flip=False)
-AVA_test = torch.utils.data.DataLoader(AVA, batch_size=450, drop_last=False, num_workers=50, pin_memory=True)
+AVA_test = torch.utils.data.DataLoader(AVA, batch_size=256, drop_last=False, num_workers=4, pin_memory=True)
 logging.info("datasets created")
 
 logging.info("testing")
