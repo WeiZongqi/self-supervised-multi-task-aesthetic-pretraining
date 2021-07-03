@@ -16,7 +16,7 @@ logging.basicConfig(format="%(asctime)s %(levelname)-8s %(message)s", level=logg
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument("--model-path", type=str, default='/opt/tiger/wzq_mnist/self-supervised-multi-task-aesthetic-pretraining/ckpts/IA2NIMA/AVA/epoch.pth')
+parser.add_argument("--model-path", type=str, default='/opt/tiger/wzq_mnist/self-supervised-multi-task-aesthetic-pretraining/ckpts/IA2NIMA/AVA/model.pth')
 parser.add_argument("--last-frozen", action="store_true")
 parser.add_argument("--first-unfrozen", action="store_true")
 
