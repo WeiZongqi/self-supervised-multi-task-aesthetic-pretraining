@@ -1,4 +1,5 @@
 import os
+import numpy as np
 
 
 def getMAE():
@@ -23,7 +24,9 @@ def getMAE():
         gt = dict_gt[ll[0]]
         pre = list(ll[1].split(']')[0].split(','))
         pre = [float(x) for x in pre]
-        print(gt,'++')
-        print(pre,'--')
+        all += sum(abs(np.array(gt) - np.array(pre)))
+        num +=1
+    return all / num
 
-getMAE()
+MAE = getMAE()
+print('MAE::', MAE)
