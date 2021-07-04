@@ -21,7 +21,7 @@ def getMAE():
     for line in pre_lines:
         ll = line.split('.jpg,"[')
         gt = dict_gt[ll[0]]
-        pre = list(ll[1].split(']')[0])
+        pre = list(ll[1].split(']')[0].split(','))
         pre = [float(x) for x in pre]
         print(gt,'++')
         print(pre,'--')
