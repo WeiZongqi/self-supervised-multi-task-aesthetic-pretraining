@@ -20,6 +20,7 @@ def getMAE():
     num = 0
     for line in pre_lines:
         ll = line.split('.jpg,')
+        print(ll,'+++===')
         gt = dict_gt[ll[0]]
         pre = list(ll[1])
         pre = [float(x) for x in pre]
