@@ -1,6 +1,6 @@
 import os
 import numpy as np
-
+from sklearn.metrics import mean_absolute_error
 
 def getMAE():
     f_gt = open('test_labels.csv', 'r')
@@ -17,16 +17,16 @@ def getMAE():
         ll = line.split(',')
         dict_gt[ll[0]] = [float(x) for x in ll[1:]]
 
-    all = 0.
-    num = 0
+    y_true = []
+    y_pre = []
     for line in pre_lines:
         ll = line.split('.jpg,"[')
         gt = dict_gt[ll[0]]
+        y_true.append(gt)
         pre = list(ll[1].split(']')[0].split(','))
         pre = [float(x) for x in pre]
-        all += sum(abs(np.array(gt) - np.array(pre)))
-        num +=1
-    return all / num
+        y_pre.append(pre)
+    return mean_absolute_error(y_true, y_pre)
 
 MAE = getMAE()
 print('MAE::', MAE)
