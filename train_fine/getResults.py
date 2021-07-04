@@ -8,6 +8,7 @@ def getMAE():
 
     f_pre = open('ckpts/IA2NIMA/AVA/output.txt','r')
     pre_lines = f_pre.readlines()
+    pre_lines = pre_lines[1:]
     f_pre.close()
 
     print(gt_lines[0],'++')
