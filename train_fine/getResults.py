@@ -11,8 +11,19 @@ def getMAE():
     pre_lines = pre_lines[1:]
     f_pre.close()
 
-    print(gt_lines[0],'++')
-    print(pre_lines[0],'--')
+    dict_gt = {}
+    for line in gt_lines:
+        ll = line.split(',')
+        dict_gt[ll[0]] = [float(x) for x in ll[1:]]
 
+    all = 0.
+    num = 0
+    for line in pre_lines:
+        ll = line.split('.jpg,')
+        gt = dict_gt[ll[0]]
+        pre = list(ll[1])
+        pre = [float(x) for x in pre]
+        print(gt,'++')
+        print(pre,'--')
 
 getMAE()
